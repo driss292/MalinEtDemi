@@ -1,35 +1,27 @@
-<nav class="bg-white shadow-lg">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
+<header class="bg-white shadow-lg">
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
       <div class="flex">
         <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center">
-          <img class="h-8 w-auto" [src]="logoPath" alt="Logo" />
+        <div class="flex items-center flex-shrink-0">
+          <img class="w-auto h-8" [src]="logoPath" alt="Logo" />
+          <div class="text-4xl font-anton">MALIN</div>
         </div>
 
-        <!-- Search Bar -->
-        <div class="ml-2 sm:ml-6 sm:flex sm:items-center">
+        <!-- Search Bar (hidden on mobile) -->
+        <div class="hidden sm:ml-6 sm:flex sm:items-center">
           <div class="relative">
             <input
               type="text"
               placeholder="Rechercher un meuble"
               class="w-64 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button class="absolute right-0 top-0 mt-2 mr-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
+            <button class="absolute top-0 right-0 mt-2 mr-2">
+              <img
+                src="assets/svg/icon-search.svg"
+                alt="Search"
+                class="w-6 h-6"
+              />
             </button>
           </div>
         </div>
@@ -40,11 +32,11 @@
         <!-- Account Management -->
         <a
           href="#"
-          class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+          class="px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -61,11 +53,11 @@
         <!-- Favorites -->
         <a
           href="#"
-          class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+          class="px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -82,11 +74,11 @@
         <!-- Cart -->
         <a
           href="#"
-          class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+          class="px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -102,15 +94,15 @@
       </div>
 
       <!-- Mobile menu button -->
-      <div class="flex items-center ml-2 sm:hidden">
+      <div class="flex items-center sm:hidden">
         <button
           (click)="toggleMenu()"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+          class="inline-flex items-center justify-center p-2 text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
         >
           <svg
             *ngIf="!isMenuOpen"
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -125,7 +117,7 @@
           <svg
             *ngIf="isMenuOpen"
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -145,17 +137,17 @@
   <!-- Mobile menu -->
   <div [ngClass]="{ block: isMenuOpen, hidden: !isMenuOpen }" class="sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
-      <!-- Search Bar -->
+      <!-- Search Bar (visible on mobile) -->
       <div class="relative mt-3 md:hidden">
-        <!-- <input
+        <input
           type="text"
           placeholder="Rechercher un meuble"
           class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        /> -->
-        <!-- <button class="absolute right-0 top-0 mt-2 mr-2">
+        />
+        <button class="absolute top-0 right-0 mt-2 mr-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-gray-400"
+            class="w-6 h-6 text-gray-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -167,25 +159,25 @@
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-        </button> -->
+        </button>
       </div>
 
       <!-- Mobile Navigation Items -->
       <a
         href="#"
-        class="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900"
         >Compte</a
       >
       <a
         href="#"
-        class="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900"
         >Favoris</a
       >
       <a
         href="#"
-        class="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900"
         >Panier</a
       >
     </div>
   </div>
-</nav>
+</header>

@@ -2,7 +2,11 @@
 export default {
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        anton: ["Anton", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
