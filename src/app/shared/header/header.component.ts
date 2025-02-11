@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   isMenuOpen = false;
-  logoPath = './assets/fox.png'; // Définition du chemin vers le logo
+  logoPath = './assets/images/fox.png'; // Définition du chemin vers le logo
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
