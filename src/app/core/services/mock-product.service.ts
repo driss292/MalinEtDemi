@@ -6,7 +6,7 @@ import { MockProduct } from '../models/mock-product.model';
   providedIn: 'root',
 })
 export class MockProductService {
-  private products: MockProduct[] = [
+  private readonly products: MockProduct[] = [
     new MockProduct(
       1,
       'Table',
@@ -44,14 +44,24 @@ export class MockProductService {
   }
 
   // Appliquer les filtres sur les produits
+
   filterProducts(
     products: MockProduct[],
-    filter: { category: string | null; room: string | null }
+    filter: {
+      category: string | null;
+      room: string | null;
+      searchText: string;
+    }
   ): MockProduct[] {
-    return products.filter(
-      (product) =>
-        (!filter.category || product.category === filter.category) &&
-        (!filter.room || product.room === filter.room)
-    );
+    return products.filter((product) => {
+      const matchesCategory =
+        !filter.category || product.category === filter.category;
+      const matchesRoom = !filter.room || product.room === filter.room;
+      const matchesSearch =
+        !filter.searchText ||
+        product.title.toLowerCase().includes(filter.searchText) ||
+        product.description.toLowerCase().includes(filter.searchText);
+      return matchesCategory && matchesRoom && matchesSearch;
+    });
   }
 }

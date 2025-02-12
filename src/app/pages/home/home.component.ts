@@ -28,8 +28,11 @@ export class HomeComponent implements OnInit {
   }
 
   // Méthode appelée à chaque changement de filtre
-  onFilterChange(filter: { category: string | null; room: string | null }) {
-    // Appliquer le filtre et mettre à jour filteredProducts
+  onFilterChange(filter: {
+    category: string | null;
+    room: string | null;
+    searchText: string;
+  }) {
     this.filteredProducts = this.mockProductService.filterProducts(
       this.products,
       filter
