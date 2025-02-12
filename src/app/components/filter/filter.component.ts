@@ -1,18 +1,18 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'; // <-- Import de ReactiveFormsModule
+import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-filter',
   standalone: true,
-  imports: [ReactiveFormsModule, NgFor], // Ajout de ReactiveFormsModule ici
+  imports: [ReactiveFormsModule, FormsModule, NgFor], // Ajout de ReactiveFormsModule ici
   templateUrl: './filter.component.html',
   styles: ``,
 })
 export class FilterComponent {
   categories = ['Tables', 'Chaises', 'Canapés', 'Fauteuils'];
   rooms = ['Salon', 'Chambre', 'Bureau', 'Cuisine'];
+  searchText: string = '';
 
   selectedCategory = new FormControl('all');
   selectedRoom = new FormControl('all');
@@ -20,6 +20,7 @@ export class FilterComponent {
   @Output() filterChanged = new EventEmitter<{
     category: string | null;
     room: string | null;
+    searchText: string;
   }>();
 
   onFilterChange() {
@@ -29,13 +30,11 @@ export class FilterComponent {
         : this.selectedCategory.value;
     const room =
       this.selectedRoom.value === 'all' ? null : this.selectedRoom.value;
-    console.log('filtre : ', {
-      category: this.selectedCategory.value, // Utilisation de .value ici
-      room: this.selectedRoom.value,
-    });
+
     this.filterChanged.emit({
       category,
       room,
+      searchText: this.searchText,
     });
   }
 }
