@@ -1,0 +1,36 @@
+<div class="flex flex-col gap-4 p-4 bg-gray-100 rounded-md sm:flex-row">
+  <!-- Sélection des catégories -->
+  <div class="flex flex-col">
+    <label for="category" class="mb-1 text-sm font-medium text-gray-700"
+      >Catégorie</label
+    >
+    <select
+      id="category"
+      [formControl]="selectedCategory"
+      (change)="onFilterChange()"
+      class="p-2 bg-white border rounded focus:ring-2 focus:ring-blue-400 focus:outline-none"
+    >
+      <option value="all">Toutes les catégories</option>
+      <!-- Option pour toutes les catégories -->
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Sélection des pièces -->
+  <div class="flex flex-col">
+    <label for="room" class="mb-1 text-sm font-medium text-gray-700"
+      >Pièce</label
+    >
+    <select
+      id="room"
+      [formControl]="selectedRoom"
+      (change)="onFilterChange()"
+      class="p-2 bg-white border rounded focus:ring-2 focus:ring-blue-400 focus:outline-none"
+    >
+      <option value="all">Toutes les pièces</option>
+      <option *ngFor="let room of rooms" [value]="room">{{ room }}</option>
+    </select>
+  </div>
+</div>
