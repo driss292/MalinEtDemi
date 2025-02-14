@@ -25,11 +25,13 @@ Le projet **Malin & Demi** consiste en un site de vente de meubles d'occasion. L
 
 - **Spring Boot** : Framework Java pour la création d'API REST.
 - **PostgreSQL** : Base de données relationnelle pour stocker les données des meubles.
+- API en cours de refonte [lien repo](https://github.com/driss292/API-malin-et-demi).
 
 ## Utilisation
 
 Nous vous invitons à découvrir notre site de vente de meubles d'occasion à l'adresse suivante :  
 [**malin-et-demi.app**](https://malin-et-demi.netlify.app/)
+
 
 ## Contributeurs
 
