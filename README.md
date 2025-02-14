@@ -29,7 +29,7 @@ Le projet **Malin & Demi** consiste en un site de vente de meubles d'occasion. L
 ## Utilisation
 
 Nous vous invitons à découvrir notre site de vente de meubles d'occasion à l'adresse suivante :  
-[**malin-et-demi.app**](https://malin-et-demi.netlify.app/) _(remplacez par le lien réel une fois le site déployé)_
+[**malin-et-demi.app**](https://malin-et-demi.netlify.app/)
 
 ## Contributeurs
 
