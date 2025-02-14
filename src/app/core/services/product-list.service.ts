@@ -5,12 +5,13 @@ import {
   ProductListtApiResponse,
 } from '../models/product-list.model';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductListService {
-  private readonly apiUrl = 'http://localhost:3000/api/product-list';
+  private readonly apiUrl = environment.apiUrl;
   private readonly http: HttpClient = inject<HttpClient>(HttpClient);
 
   constructor() {}
